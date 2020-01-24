@@ -1,6 +1,4 @@
 import 'dart:math';
-import 'dart:io';
-import 'dart:convert';
 
 class TicTacToe {
   final _random = new Random();
