@@ -1,4 +1,6 @@
 import 'dart:math';
+import 'dart:io';
+import 'dart:convert';
 
 class TicTacToe {
   final _random = new Random();
@@ -19,6 +21,7 @@ class TicTacToe {
     var tictactoe = new TicTacToe();
     tictactoe.getNextState();
     while (!tictactoe.isBoardFilled()) {
+      tictactoe.getNextState();
       if (tictactoe.isWinState())break;
     }
     if(tictactoe.isWinState())
@@ -29,9 +32,9 @@ class TicTacToe {
   }
 
   void getNextState() {
-    int v = _next(0, 8);
+    int v = _next(0, 9);
     while (this.gameState[v] != '-') {
-      v = _next(0, 8);
+      v = _next(0, 9);
     }
     this.gameState[v] = this.XTurnToPlay ? 'X' : 'O';
     this.XTurnToPlay = !this.XTurnToPlay;
@@ -76,8 +79,14 @@ class TicTacToe {
 void main() {
 
 //   var ttt=new TicTacToe();
-//   ttt.gameState = ['O', '-', '-', '-', '-', '-', 'O', '-', '-'];
-//   print(ttt.isWinState());
+//   ttt.gameState = ['O', '-', 'X', 'X', 'O', 'X', '-', 'X', 'O'];
 //   ttt.printState();
-  TicTacToe.gameLoop();
+//   print(ttt.isBoardFilled());
+//   ttt.getNextState();
+//   ttt.printState();
+//   print(ttt.isBoardFilled());
+//   ttt.getNextState();
+//   ttt.printState();
+//   print(ttt.isBoardFilled());
+ TicTacToe.gameLoop();
 }
