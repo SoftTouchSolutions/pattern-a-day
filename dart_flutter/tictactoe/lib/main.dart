@@ -56,9 +56,9 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
+      if(_tictactoe.isWinState()||_tictactoe.isBoardFilled())_tictactoe.reset();
       _tictactoe.getNextState();
       _winner=_tictactoe.isWinState()?(_tictactoe.XTurnToPlay?'O':'X')+' wins':(_tictactoe.isBoardFilled()?'game was a draw':'');
-      if(_tictactoe.isBoardFilled())_tictactoe.reset();
     });
   }
 
@@ -94,6 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // center the children vertically; the main axis here is the vertical
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
+          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Row(
