@@ -13,7 +13,7 @@ class TicTacToe {
     [2, 4, 6],
   ];
   List gameState = ['-', '-', '-', '-', '-', '-', '-', '-', '-'];
-  bool XTurnToPlay = false;
+  bool XTurnToPlay = true;
 
   static void gameLoop() {
     var tictactoe = new TicTacToe();
@@ -28,7 +28,10 @@ class TicTacToe {
       print('game was a draw');
     tictactoe.printState();
   }
-
+  void reset(){
+    List gameState = ['-', '-', '-', '-', '-', '-', '-', '-', '-'];
+    bool XTurnToPlay = true;
+  }
   void getNextState() {
     int v = _next(0, 9);
     while (this.gameState[v] != '-') {
