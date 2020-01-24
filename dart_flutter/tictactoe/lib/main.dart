@@ -45,8 +45,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-  String _winner="";
   var _tictactoe=TicTacToe();
 
   void _incrementCounter() {
@@ -56,9 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      if(_tictactoe.isWinState()||_tictactoe.isBoardFilled())_tictactoe.reset();
-      _tictactoe.getNextState();
-      _winner=_tictactoe.isWinState()?(_tictactoe.XTurnToPlay?'O':'X')+' wins':(_tictactoe.isBoardFilled()?'game was a draw':'');
+      _tictactoe.play();
     });
   }
 
@@ -97,6 +93,9 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Container(
+              child: Center(child: Text('${_tictactoe.winner}'),)
+            ),
             Row(
               children: <Widget>[
                 Container(

@@ -1,6 +1,7 @@
 import 'dart:math';
 
 class TicTacToe {
+
   final _random = new Random();
   final List winstates = const [
     [0, 1, 2],
@@ -14,6 +15,7 @@ class TicTacToe {
   ];
   List gameState = ['-', '-', '-', '-', '-', '-', '-', '-', '-'];
   bool XTurnToPlay = true;
+  String winner="";
 
   static void gameLoop() {
     var tictactoe = new TicTacToe();
@@ -29,8 +31,13 @@ class TicTacToe {
     tictactoe.printState();
   }
   void reset(){
-    List gameState = ['-', '-', '-', '-', '-', '-', '-', '-', '-'];
-    bool XTurnToPlay = true;
+    this.gameState = ['-', '-', '-', '-', '-', '-', '-', '-', '-'];
+    this.XTurnToPlay = true;
+    this.winner="";
+  }
+  void play(){
+    if(this.isWinState()||this.isBoardFilled())this.reset();
+      this.getNextState();
   }
   void getNextState() {
     int v = _next(0, 9);
@@ -39,6 +46,7 @@ class TicTacToe {
     }
     this.gameState[v] = this.XTurnToPlay ? 'X' : 'O';
     this.XTurnToPlay = !this.XTurnToPlay;
+    this.winner=this.isWinState()?(this.XTurnToPlay?'O':'X')+' wins':(this.isBoardFilled()?'game was a draw':'');
   }
 
   bool isWinState() {
