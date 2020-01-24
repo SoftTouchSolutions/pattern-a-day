@@ -94,44 +94,86 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              child: Center(child: Text('${_tictactoe.winner}'),)
+              child: Center(child: Text('${_tictactoe.winner}',
+                      style: TextStyle(fontSize: 45),
+                      textAlign: TextAlign.center,
+                    ),)
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Container(
-                  child: Center(child: Text('${_tictactoe.gameState[0]}'),)
+                  width: 50,
+                  child: Center(child: Text('${_tictactoe.gameState[0]}',
+                    style: TextStyle(fontSize: 45),
+                    textAlign: TextAlign.center,
+                  ),)
                 ),
                 Container(
-                  child: Center(child: Text('${_tictactoe.gameState[1]}'),)
+                  width: 50,
+                  child: Center(child: Text('${_tictactoe.gameState[1]}',
+                    style: TextStyle(fontSize: 45),
+                    textAlign: TextAlign.center,
+                  ),)
                 ),
                 Container(
-                  child: Center(child: Text('${_tictactoe.gameState[2]}'),)
+                  width: 50,
+                  child: Center(child: Text('${_tictactoe.gameState[2]}',
+                    style: TextStyle(fontSize: 45),
+                    textAlign: TextAlign.center,
+                  ),)
                 ),
               ],
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Container(
-                  child: Center(child: Text('${_tictactoe.gameState[3]}'),)
+                  width: 50,
+                  child: Center(child: Text('${_tictactoe.gameState[3]}',
+                      style: TextStyle(fontSize: 45),
+                      textAlign: TextAlign.center,
+                    ),)
                 ),
                 Container(
-                  child: Center(child: Text('${_tictactoe.gameState[4]}'),)
+                  width: 50,
+                  child: Center(child: Text('${_tictactoe.gameState[4]}',
+                      style: TextStyle(fontSize: 45),
+                      textAlign: TextAlign.center,
+                    ),)
                 ),
                 Container(
-                  child: Center(child: Text('${_tictactoe.gameState[5]}'),)
+                  width: 50,
+                  child: Center(child: Text('${_tictactoe.gameState[5]}',
+                      style: TextStyle(fontSize: 45),
+                      textAlign: TextAlign.center,
+                    ),)
                 ),
               ],
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Container(
-                  child: Center(child: Text('${_tictactoe.gameState[6]}'),)
+                  width: 50,
+                  child: Center(child: Text('${_tictactoe.gameState[6]}',
+                      style: TextStyle(fontSize: 45),
+                      textAlign: TextAlign.center,
+                    ),)
                 ),
                 Container(
-                  child: Center(child: Text('${_tictactoe.gameState[7]}'),)
+                  width: 50,
+                  child: Center(child: Text('${_tictactoe.gameState[7]}',
+                      style: TextStyle(fontSize: 45),
+                      textAlign: TextAlign.center,
+                    ),)
                 ),
                 Container(
-                  child: Center(child: Text('${_tictactoe.gameState[8]}'),)
+                  width: 50,
+                  child: Center(child: Text('${_tictactoe.gameState[8]}',
+                      style: TextStyle(fontSize: 45),
+                      textAlign: TextAlign.center,
+                    ),)
                 ),
               ],
             ),
