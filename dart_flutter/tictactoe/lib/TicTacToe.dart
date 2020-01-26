@@ -35,7 +35,7 @@ class TicTacToe {
     this.XTurnToPlay = true;
     this.winner="";
   }
-  void play(){
+  void gamePlay(){
     if(this.isWinState()||this.isBoardFilled())this.reset();
       this.getNextState();
   }
