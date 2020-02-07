@@ -1,6 +1,6 @@
 import 'dart:math';
 
-class TicTacToe {
+class TicTacToeGame {
 
   final _random = new Random();
   final List winstates = const [

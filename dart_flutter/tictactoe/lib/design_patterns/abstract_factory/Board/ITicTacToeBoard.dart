@@ -4,4 +4,5 @@ import 'package:tictactoe/design_patterns/abstract_factory/Board/ITicTacToeBoard
 
 abstract class ITicTacToeBoard {
   ITicTacToeBoardSpace getBoardSpace();
+  Widget render();
 }
