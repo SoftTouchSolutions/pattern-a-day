@@ -3,7 +3,7 @@ import 'package:tictactoe/design_patterns/abstract_factory/BoardSpace/ITicTacToe
 import 'package:tictactoe/design_patterns/abstract_factory/BoardSpace/FlutterTicTacToeBoardSpace.dart';
 
 
-class FlutterTicTacToeBoard implements ITicTacToeBoardSpace{
+class FlutterTicTacToeBoard implements ITicTacToeBoard{
   @overide
   ITicTacToeBoardSpace getBoardSpace(){
     return new FlutterTicTacToeBoardSpace();
