@@ -1,6 +1,8 @@
 
+import 'package:tictactoe/design_patterns/abstract_factory/Board/ITicTacToeBoard.dart';
 import 'package:tictactoe/design_patterns/abstract_factory/BoardSpace/ITicTacToeBoardSpace.dart';
 import 'package:tictactoe/design_patterns/abstract_factory/BoardSpace/FlutterTicTacToeBoardSpace.dart';
+import 'package:tictactoe/TicTacToeGame.dart';
 
 
 class FlutterTicTacToeBoard implements ITicTacToeBoard{
@@ -10,7 +12,8 @@ class FlutterTicTacToeBoard implements ITicTacToeBoard{
   FlutterTicTacToeBoard(TicTacToeGame tictactoe) { 
     this._tictactoe=tictactoe;
     this._space=getBoardSpace(); 
-  } 
+  }
+
   @overide
   ITicTacToeBoardSpace getBoardSpace(){
     return new FlutterTicTacToeBoardSpace(this._tictactoe);
@@ -23,7 +26,7 @@ class FlutterTicTacToeBoard implements ITicTacToeBoard{
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
             Container(
-              child: Center(child: Text('${_tictactoe.winner}',
+              child: Center(child: Text('${this._tictactoe.winner}',
                       style: TextStyle(fontSize: 45),
                       textAlign: TextAlign.center,
                     ),)
@@ -33,7 +36,7 @@ class FlutterTicTacToeBoard implements ITicTacToeBoard{
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   for(y in [0,1,2])
-                    _space.render(x*3+y)
+                    this._space.render(x*3+y)
                 ],
               )
           ],
