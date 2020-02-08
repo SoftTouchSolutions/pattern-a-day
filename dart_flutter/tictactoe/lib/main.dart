@@ -1,6 +1,6 @@
 import 'package:tictactoe/TicTacToeGame.dart';
 import 'package:flutter/material.dart';
-import 'package:tictactoe/design_patterns/abstract_factory/Board/FlutterTicTacToeBoard.dart';
+import 'package:tictactoe/design_patterns/abstract_factory/FlutterTicTacToeUI.dart';
 
 void main() => runApp(MyApp());
 
@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: FlutterTicTacToeBoard(_tictactoe).render();
+        child: FlutterTicTacToeUI().getBoard(_tictactoe).render()
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _playGame,

@@ -18,7 +18,7 @@ class TicTacToeGame {
   String winner="";
 
   static void gameLoop() {
-    var tictactoe = new TicTacToe();
+    var tictactoe = new TicTacToeGame();
     tictactoe.getNextState();
     while (!tictactoe.isBoardFilled()) {
       tictactoe.getNextState();
@@ -97,5 +97,5 @@ void main() {
 //   ttt.getNextState();
 //   ttt.printState();
 //   print(ttt.isBoardFilled());
- TicTacToe.gameLoop();
+ TicTacToeGame.gameLoop();
 }
