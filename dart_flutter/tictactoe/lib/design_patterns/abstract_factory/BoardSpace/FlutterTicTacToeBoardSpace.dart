@@ -16,6 +16,15 @@ class FlutterTicTacToeBoardSpace implements ITicTacToeBoardSpace{
   @override
   Widget render(int idx){
     return Container(
+      decoration: BoxDecoration(
+        color: Colors.white, 
+        border: Border.all(
+          color: Colors.black,
+          width: 1,
+        ),
+        borderRadius: BorderRadius.circular(6)
+      ),
+      margin: const EdgeInsets.all(3),
       width: 50,
       child: Center(child: Text('${_tictactoe.gameState[idx]}',
         style: TextStyle(fontSize: 45),
