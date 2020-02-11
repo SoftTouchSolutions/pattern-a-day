@@ -49,11 +49,12 @@ class FlutterTicTacToeBoard implements ITicTacToeBoard{
           builder: (context,constraints){
             return
             Transform.rotate(
-              angle: -pi / 1.0,
-              alignment: Alignment.center,
+              angle: -pi / 4.0,
+              alignment: AlignmentDirectional(1.55, 20.0),
               child:Divider(
                 thickness: 3,
-                // height: constraints.maxHeight+200,
+                indent: constraints.maxWidth-(constraints.maxWidth-150),
+                endIndent: constraints.maxWidth-(constraints.maxWidth-150),
               ),
             );
           },
