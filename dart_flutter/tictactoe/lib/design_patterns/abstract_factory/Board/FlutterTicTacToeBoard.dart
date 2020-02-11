@@ -4,6 +4,7 @@ import 'package:tictactoe/design_patterns/abstract_factory/Board/ITicTacToeBoard
 import 'package:tictactoe/design_patterns/abstract_factory/BoardSpace/ITicTacToeBoardSpace.dart';
 import 'package:tictactoe/design_patterns/abstract_factory/BoardSpace/FlutterTicTacToeBoardSpace.dart';
 import 'package:tictactoe/TicTacToeGame.dart';
+import 'dart:math';
 
 
 class FlutterTicTacToeBoard implements ITicTacToeBoard{
@@ -22,15 +23,17 @@ class FlutterTicTacToeBoard implements ITicTacToeBoard{
 
   @override
   Widget render(){
-    return Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
+    return Stack(
+      children:<Widget>[
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
             Container(
               child: Center(child: Text('${this._tictactoe.winner}',
-                      style: TextStyle(fontSize: 45),
-                      textAlign: TextAlign.center,
-                    ),)
+                style: TextStyle(fontSize: 45),
+                textAlign: TextAlign.center,
+              ),)
             ),
             for (var x in [0,1,2])
               Row(
@@ -41,7 +44,19 @@ class FlutterTicTacToeBoard implements ITicTacToeBoard{
                 ],
               )
           ],
+        ),
+        LayoutBuilder(
+          builder: (context,constraints){
+            return
+            Transform.rotate(
+              angle: -pi / 1.0,
+              //alignment: Alignment.bottomCenter,
+              child:Divider(thickness: 3,height: constraints.maxHeight+200,),
+            );
+          },
+        )
+      ]
     );
-
+    
   }
 }
