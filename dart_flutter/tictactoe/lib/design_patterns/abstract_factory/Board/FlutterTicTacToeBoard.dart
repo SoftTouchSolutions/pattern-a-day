@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tictactoe/design_patterns/abstract_factory/Board/ITicTacToeBoard.dart';
 import 'package:tictactoe/design_patterns/abstract_factory/BoardSpace/ITicTacToeBoardSpace.dart';
 import 'package:tictactoe/design_patterns/abstract_factory/BoardSpace/FlutterTicTacToeBoardSpace.dart';
+import 'package:tictactoe/design_patterns/abstract_factory/BoardLine/FlutterTicTacToeBoardLine.dart';
 import 'package:tictactoe/TicTacToeGame.dart';
 import 'dart:math';
 
@@ -10,6 +11,7 @@ import 'dart:math';
 class FlutterTicTacToeBoard implements ITicTacToeBoard{
   TicTacToeGame _tictactoe;
   FlutterTicTacToeBoardSpace _space;
+  FlutterTicTacToeBoardLine _lines;
 
   FlutterTicTacToeBoard(TicTacToeGame tictactoe) { 
     this._tictactoe=tictactoe;
@@ -19,6 +21,11 @@ class FlutterTicTacToeBoard implements ITicTacToeBoard{
   @override
   ITicTacToeBoardSpace getBoardSpace(){
     return new FlutterTicTacToeBoardSpace(this._tictactoe);
+  }
+
+  @override
+  ITicTacToeBoardLine buildLines(){
+    return new FlutterTicTacToeBoardLine(this._tictactoe);
   }
 
   @override
@@ -45,20 +52,7 @@ class FlutterTicTacToeBoard implements ITicTacToeBoard{
               )
           ],
         ),
-        LayoutBuilder(
-          builder: (context,constraints){
-            return
-            Transform.rotate(
-              angle: -pi / 4.0,
-              alignment: AlignmentDirectional(1.55, 20.0),
-              child:Divider(
-                thickness: 3,
-                indent: constraints.maxWidth-(constraints.maxWidth-150),
-                endIndent: constraints.maxWidth-(constraints.maxWidth-150),
-              ),
-            );
-          },
-        )
+        this._lines.render()
       ]
     );
     

@@ -4,5 +4,6 @@ import 'package:flutter/material.dart';
 
 abstract class ITicTacToeBoard {
   ITicTacToeBoardSpace getBoardSpace();
+  ITicTacToeBoardLine buildLines();
   Widget render();
 }
