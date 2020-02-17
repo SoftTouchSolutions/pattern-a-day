@@ -27,7 +27,7 @@ class MyPainter extends CustomPainter { //         <-- CustomPainter class
   @override
   void paint(Canvas canvas, Size size) {
     final p1 = Offset(0, 0);
-    final p2 = Offset(150, 150);
+    final p2 = Offset(162, 162);
     final paint = Paint()
       ..color = Colors.black
       ..strokeWidth = 4;

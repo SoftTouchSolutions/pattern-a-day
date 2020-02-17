@@ -32,29 +32,33 @@ class FlutterTicTacToeBoard implements ITicTacToeBoard{
 
   @override
   Widget render(){
-    return Stack(
-      children:<Widget>[
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              child: Center(child: Text('${this._tictactoe.winner}',
-                style: TextStyle(fontSize: 45),
-                textAlign: TextAlign.center,
-              ),)
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Container(
+          child: Center(child: Text('${this._tictactoe.winner}',
+            style: TextStyle(fontSize: 45),
+            textAlign: TextAlign.center,
+          ),)
+        ),
+        Stack(
+          children:<Widget>[
+            Column(
+              children:<Widget>[
+              for (var x in [0,1,2])
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    for(var y in [0,1,2])
+                      this._space.render(x*3+y)
+                  ],
+                )
+              ]
             ),
-            for (var x in [0,1,2])
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  for(var y in [0,1,2])
-                    this._space.render(x*3+y)
-                ],
-              )
+            this._lines.render(),            
           ],
         ),
-        this._lines.render()
       ]
     );
     
