@@ -12,7 +12,7 @@ class FlutterTicTacToeBoardLine implements ITicTacToeBoardLine{
   } 
 
   @override
-  Widget render(int idx){
+  Widget render(){
     return Center(
       child: CustomPaint( //                       <-- CustomPaint widget
         size: Size(150, 150),
@@ -38,3 +38,4 @@ class MyPainter extends CustomPainter { //         <-- CustomPainter class
   bool shouldRepaint(CustomPainter old) {
     return false;
   }
+}

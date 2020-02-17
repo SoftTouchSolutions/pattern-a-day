@@ -4,6 +4,7 @@ import 'package:tictactoe/design_patterns/abstract_factory/Board/ITicTacToeBoard
 import 'package:tictactoe/design_patterns/abstract_factory/BoardSpace/ITicTacToeBoardSpace.dart';
 import 'package:tictactoe/design_patterns/abstract_factory/BoardSpace/FlutterTicTacToeBoardSpace.dart';
 import 'package:tictactoe/design_patterns/abstract_factory/BoardLine/FlutterTicTacToeBoardLine.dart';
+import 'package:tictactoe/design_patterns/abstract_factory/BoardLine/ITicTacToeBoardLine.dart';
 import 'package:tictactoe/TicTacToeGame.dart';
 import 'dart:math';
 
@@ -16,6 +17,7 @@ class FlutterTicTacToeBoard implements ITicTacToeBoard{
   FlutterTicTacToeBoard(TicTacToeGame tictactoe) { 
     this._tictactoe=tictactoe;
     this._space=this.getBoardSpace(); 
+    this._lines=this.buildLines();
   }
 
   @override
