@@ -45,6 +45,8 @@ class FlutterTicTacToeBoard implements ITicTacToeBoard{
         Stack(
           children:<Widget>[
             Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children:<Widget>[
               for (var x in [0,1,2])
                 Row(

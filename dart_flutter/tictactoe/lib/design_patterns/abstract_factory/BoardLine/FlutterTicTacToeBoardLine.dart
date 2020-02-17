@@ -15,7 +15,7 @@ class FlutterTicTacToeBoardLine implements ITicTacToeBoardLine{
   Widget render(){
     return Center(
       child: CustomPaint( //                       <-- CustomPaint widget
-        size: Size(150, 150),
+        size: Size(162, 162),
         painter: MyPainter(),
       ),
     );
