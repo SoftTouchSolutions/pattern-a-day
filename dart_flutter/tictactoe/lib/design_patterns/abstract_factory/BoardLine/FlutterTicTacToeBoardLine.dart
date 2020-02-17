@@ -13,22 +13,28 @@ class FlutterTicTacToeBoardLine implements ITicTacToeBoardLine{
 
   @override
   Widget render(int idx){
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white, 
-        border: Border.all(
-          color: Colors.black,
-          width: 1,
-        ),
-        borderRadius: BorderRadius.circular(6)
+    return Center(
+      child: CustomPaint( //                       <-- CustomPaint widget
+        size: Size(150, 150),
+        painter: MyPainter(),
       ),
-      margin: const EdgeInsets.all(3),
-      width: 50,
-      child: Center(child: Text('${_tictactoe.gameState[idx]}',
-        style: TextStyle(fontSize: 45),
-        textAlign: TextAlign.center,
-      ),)
     );
 
   }
 }
+
+class MyPainter extends CustomPainter { //         <-- CustomPainter class
+  @override
+  void paint(Canvas canvas, Size size) {
+    final p1 = Offset(0, 0);
+    final p2 = Offset(150, 150);
+    final paint = Paint()
+      ..color = Colors.black
+      ..strokeWidth = 4;
+      canvas.drawLine(p1, p2, paint);  
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter old) {
+    return false;
+  }
