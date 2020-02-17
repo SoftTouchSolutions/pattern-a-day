@@ -3,5 +3,5 @@ import 'package:tictactoe/TicTacToeGame.dart';
 
 
 abstract class ITicTacToeUIFactory {
-  ITicTacToeBoard getBoard(TicTacToeGame tictactoe);
+  ITicTacToeBoard getBoard(TicTacToeGame tictactoe,bool glow);
 }

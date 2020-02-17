@@ -26,16 +26,56 @@ class FlutterTicTacToeBoardLine implements ITicTacToeBoardLine{
 class MyPainter extends CustomPainter { //         <-- CustomPainter class
   @override
   void paint(Canvas canvas, Size size) {
-    final p1 = Offset(0, 0);
-    final p2 = Offset(162, 162);
+    final w0p1 = Offset(0, 0);
+    final w0p2 = Offset(162, 0);
+    final w1p1 = Offset(0, 81);
+    final w1p2 = Offset(162, 81);
+    final w2p1 = Offset(0, 162);
+    final w2p2 = Offset(162, 162);
+    final w3p1 = Offset(0, 0);
+    final w3p2 = Offset(162, 162);
+    final w4p1 = Offset(0, 0);
+    final w4p2 = Offset(162, 162);
+    final w5p1 = Offset(0, 0);
+    final w5p2 = Offset(162, 162);
+    final w6p1 = Offset(0, 0);
+    final w6p2 = Offset(162, 162);
+    final w7p1 = Offset(0, 0);
+    final w7p2 = Offset(162, 162);
     final paint = Paint()
-      ..color = Colors.black
+      ..color = Colors.red
       ..strokeWidth = 4;
-      canvas.drawLine(p1, p2, paint);  
+    switch (this._tictactoe.windex) {
+      case 0:
+        canvas.drawLine(w0p1, w0p2, paint);  
+        break;
+      case 1:
+        canvas.drawLine(w1p1, w1p2, paint);  
+        break;
+      case 2:
+        canvas.drawLine(w2p1, w2p2, paint);  
+        break;
+      case 3:
+        canvas.drawLine(w3p1, w3p2, paint);  
+        break;
+      case 4:
+        canvas.drawLine(w4p1, w4p2, paint);  
+        break;
+      case 5:
+        canvas.drawLine(w5p1, w5p2, paint);  
+        break;
+      case 6:
+        canvas.drawLine(w6p1, w6p2, paint);  
+        break;
+      case 7:
+        canvas.drawLine(w7p1, w7p2, paint);  
+        break;
+      default:
+    }
   }
 
   @override
   bool shouldRepaint(CustomPainter old) {
-    return false;
+    return (this._tictactoe.windex!=-1);
   }
 }

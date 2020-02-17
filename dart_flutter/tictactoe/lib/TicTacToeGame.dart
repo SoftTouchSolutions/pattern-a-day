@@ -16,6 +16,7 @@ class TicTacToeGame {
   List gameState = ['-', '-', '-', '-', '-', '-', '-', '-', '-'];
   bool XTurnToPlay = true;
   String winner="";
+  int windex=-1;
 
   static void gameLoop() {
     var tictactoe = new TicTacToeGame();
@@ -34,6 +35,7 @@ class TicTacToeGame {
     this.gameState = ['-', '-', '-', '-', '-', '-', '-', '-', '-'];
     this.XTurnToPlay = true;
     this.winner="";
+    this.windex=-1;
   }
   void gamePlay(){
     if(this.isWinState()||this.isBoardFilled())this.reset();
@@ -47,14 +49,20 @@ class TicTacToeGame {
     this.gameState[v] = this.XTurnToPlay ? 'X' : 'O';
     this.XTurnToPlay = !this.XTurnToPlay;
     this.winner=this.isWinState()?(this.XTurnToPlay?'O':'X')+' wins':(this.isBoardFilled()?'game was a draw':'');
+    //print('this.windex=${this.windex}');
+    // this.testWinState();
   }
 
   bool isWinState() {
-    return this
-        .winstates
-        .fold(false, (t, e) 
-              => t || (e.fold(true, (x, y) 
-                              => x && (this.gameState[e[0]] == this.gameState[y]) && (this.gameState[e[0]]!='-'))));
+    var winstate=false;
+    for(var i=0;i<this.winstates.length;i++){
+      if(gameState[winstates[i][0]]!='-' && gameState[winstates[i][0]]==gameState[winstates[i][1]] && gameState[winstates[i][1]]==gameState[winstates[i][2]]){
+        this.windex=i;
+        winstate=true;
+        break;
+      }
+    }
+    return winstate;
   }
 
   bool isBoardFilled() {
