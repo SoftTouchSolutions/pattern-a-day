@@ -16,7 +16,7 @@ class FlutterTicTacToeBoardLine implements ITicTacToeBoardLine{
     return Center(
       child: CustomPaint( //                       <-- CustomPaint widget
         size: Size(162, 162),
-        painter: MyPainter(),
+        painter: MyPainter(this._tictactoe),
       ),
     );
 
@@ -24,6 +24,10 @@ class FlutterTicTacToeBoardLine implements ITicTacToeBoardLine{
 }
 
 class MyPainter extends CustomPainter { //         <-- CustomPainter class
+  TicTacToeGame _tictactoe;
+  MyPainter(TicTacToeGame tictactoe) { 
+    this._tictactoe=tictactoe; 
+  } 
   @override
   void paint(Canvas canvas, Size size) {
     final w0p1 = Offset(0, 0);
@@ -32,16 +36,16 @@ class MyPainter extends CustomPainter { //         <-- CustomPainter class
     final w1p2 = Offset(162, 81);
     final w2p1 = Offset(0, 162);
     final w2p2 = Offset(162, 162);
-    final w3p1 = Offset(0, 0);
-    final w3p2 = Offset(162, 162);
-    final w4p1 = Offset(0, 0);
-    final w4p2 = Offset(162, 162);
-    final w5p1 = Offset(0, 0);
-    final w5p2 = Offset(162, 162);
+    final w3p1 = Offset(26, 0);
+    final w3p2 = Offset(26, 162);
+    final w4p1 = Offset(79, 0);
+    final w4p2 = Offset(79, 162);
+    final w5p1 = Offset(132, 0);
+    final w5p2 = Offset(132, 162);
     final w6p1 = Offset(0, 0);
     final w6p2 = Offset(162, 162);
-    final w7p1 = Offset(0, 0);
-    final w7p2 = Offset(162, 162);
+    final w7p1 = Offset(162, 0);
+    final w7p2 = Offset(0, 162);
     final paint = Paint()
       ..color = Colors.red
       ..strokeWidth = 4;
