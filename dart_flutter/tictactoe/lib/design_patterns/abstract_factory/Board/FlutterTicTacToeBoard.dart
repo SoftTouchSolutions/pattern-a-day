@@ -54,7 +54,7 @@ class FlutterTicTacToeBoard implements ITicTacToeBoard{
               )
           ],
         ),
-        this._lines.render()
+        //this._lines.render()
       ]
     );
     
