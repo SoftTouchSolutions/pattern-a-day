@@ -30,18 +30,18 @@ class MyPainter extends CustomPainter { //         <-- CustomPainter class
   } 
   @override
   void paint(Canvas canvas, Size size) {
-    final w0p1 = Offset(0, 0);
-    final w0p2 = Offset(162, 0);
-    final w1p1 = Offset(0, 81);
-    final w1p2 = Offset(162, 81);
-    final w2p1 = Offset(0, 162);
-    final w2p2 = Offset(162, 162);
+    final w0p1 = Offset(0, 26);
+    final w0p2 = Offset(162, 26);
+    final w1p1 = Offset(0, 82);
+    final w1p2 = Offset(162, 82);
+    final w2p1 = Offset(0, 135);
+    final w2p2 = Offset(162, 135);
     final w3p1 = Offset(26, 0);
     final w3p2 = Offset(26, 162);
-    final w4p1 = Offset(79, 0);
-    final w4p2 = Offset(79, 162);
-    final w5p1 = Offset(132, 0);
-    final w5p2 = Offset(132, 162);
+    final w4p1 = Offset(82, 0);
+    final w4p2 = Offset(82, 162);
+    final w5p1 = Offset(135, 0);
+    final w5p2 = Offset(135, 162);
     final w6p1 = Offset(0, 0);
     final w6p2 = Offset(162, 162);
     final w7p1 = Offset(162, 0);
