@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/johnalamina/Dropbox/rtmp/src/pattern-a-day/blazor/tictactoeweb/blazor.csproj": {}
+    "H:\\Downloads\\src\\js\\pattern-a-day\\blazor\\tictactoeweb\\blazor.csproj": {}
   },
   "projects": {
-    "/Users/johnalamina/Dropbox/rtmp/src/pattern-a-day/blazor/tictactoeweb/blazor.csproj": {
+    "H:\\Downloads\\src\\js\\pattern-a-day\\blazor\\tictactoeweb\\blazor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/johnalamina/Dropbox/rtmp/src/pattern-a-day/blazor/tictactoeweb/blazor.csproj",
+        "projectUniqueName": "H:\\Downloads\\src\\js\\pattern-a-day\\blazor\\tictactoeweb\\blazor.csproj",
         "projectName": "blazor",
-        "projectPath": "/Users/johnalamina/Dropbox/rtmp/src/pattern-a-day/blazor/tictactoeweb/blazor.csproj",
-        "packagesPath": "/Users/johnalamina/.nuget/packages/",
-        "outputPath": "/Users/johnalamina/Dropbox/rtmp/src/pattern-a-day/blazor/tictactoeweb/obj/",
+        "projectPath": "H:\\Downloads\\src\\js\\pattern-a-day\\blazor\\tictactoeweb\\blazor.csproj",
+        "packagesPath": "C:\\Users\\u1273400\\.nuget\\packages\\",
+        "outputPath": "H:\\Downloads\\src\\js\\pattern-a-day\\blazor\\tictactoeweb\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/johnalamina/.nuget/NuGet/NuGet.Config"
+          "\\\\nas02\\Stuscenhome\\u1273400\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -53,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "D:\\temp\\tapp\\dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
