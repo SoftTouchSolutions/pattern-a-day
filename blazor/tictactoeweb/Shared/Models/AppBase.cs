@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Reflection;
 using Microsoft.JSInterop;
-using Microsoft.AspNetCore.Blazor.Components;
 using tictactoeweb.Shared.Models;
 using tictactoeweb.Shared.Helpers;
 
