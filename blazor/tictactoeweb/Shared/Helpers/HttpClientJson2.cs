@@ -3,8 +3,8 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using tictactoeweb.Shared.Models;
-using Microsoft.AspNetCore.Components;
-
+using System.Text.Json;
+using System.Text.Json.Serialization;
 namespace tictactoeweb.Shared.Helpers
 {
     /// <summary>
@@ -25,7 +25,7 @@ namespace tictactoeweb.Shared.Helpers
         public static async Task<T> GetJsonAsync<T>(string requestUri)
         {
             AppBase.log($"HttpClientJsonExtensions::GetJsonAsync: retrieving from {requestUri}");
-            return Json.Deserialize<T>(httpClient.GetStringAsync(requestUri).Result);
+            return JsonSerializer.Deserialize<T>(httpClient.GetStringAsync(requestUri).Result);
         }
 
 
@@ -102,7 +102,7 @@ namespace tictactoeweb.Shared.Helpers
         /// <returns>The response parsed as an object of the generic type.</returns>
         public static async Task<T> SendJsonAsync<T>(HttpMethod method, string requestUri, object content)
         {
-            var requestJson = Json.Serialize(content);
+            var requestJson = JsonSerializer.Serialize(content);
             var response = await httpClient.SendAsync(new HttpRequestMessage(method, requestUri)
             {
                 Content = new StringContent(requestJson, Encoding.UTF8, "application/json")
@@ -119,7 +119,7 @@ namespace tictactoeweb.Shared.Helpers
             else
             {
                 var responseJson = await response.Content.ReadAsStringAsync();
-                return Json.Deserialize<T>(responseJson);
+                return JsonSerializer.Deserialize<T>(responseJson);
             }
         }
 
