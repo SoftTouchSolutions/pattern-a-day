@@ -10,8 +10,7 @@
 
   abstract class ITicTacToeUIFactory
   {
-    public abstract AbstractProductA CreateProductA();
-    public abstract AbstractProductB CreateProductB();
+    public abstract ITicTacToeBoard getBoard(TicTacToeGame tictactoe,bool glow);
   }
 
  }
