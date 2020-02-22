@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using tictactoeweb.Shared.Models;
+using Microsoft.AspNetCore.Components;
 
 namespace tictactoeweb.Shared.Helpers
 {
