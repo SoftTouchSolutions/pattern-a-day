@@ -10,7 +10,7 @@
 
   abstract class ITicTacToeUIFactory
   {
-    public abstract ITicTacToeBoard getBoard(TicTacToeGame tictactoe,bool glow);
+    //public abstract ITicTacToeBoard getBoard(TicTacToeGame tictactoe,bool glow);
   }
 
  }
