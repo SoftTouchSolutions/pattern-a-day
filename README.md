@@ -1,2 +1,2 @@
 # pattern-a-day
-23 Days-in-Patterns
+Please find the [wiki](https://github.com/SoftTouchSolutions/pattern-a-day/wiki) for details
