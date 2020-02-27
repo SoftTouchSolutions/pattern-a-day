@@ -1,0 +1,28 @@
+
+ 
+@namespace tictactoeweb.Shared.DesignPatterns
+
+@inherits ITicTacToeBoardLine
+<style>
+
+</style>
+<div class="main-board">
+    <div class="grid-container">
+        <div class="boardspace">
+            <div class="text">1</div>
+        </div >
+        <div class="boardspace">
+            <div class="text">2</div>
+        </div>
+    </div>
+</div>
+
+@code {
+  protected TicTacToeGame tictactoe;
+  public BlazorTicTacToeBoardLine() { 
+  } 
+  public BlazorTicTacToeBoardLine(TicTacToeGame tictactoe) { 
+    this.tictactoe=tictactoe; 
+  } 
+}
+

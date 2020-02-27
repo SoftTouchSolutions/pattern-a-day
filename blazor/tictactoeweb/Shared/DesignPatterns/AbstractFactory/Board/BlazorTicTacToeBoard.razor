@@ -1,0 +1,65 @@
+﻿@namespace tictactoeweb.Shared.DesignPatterns
+
+@inherits ITicTacToeBoard
+<style>
+  .main-board {
+    width: 40%;
+    background: #add8e6;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: ". . ." ". . ." ". . .";
+  }
+
+  .boardspace {
+    background-color: red;
+    width: 100%;
+    padding-top: 90%; /* 1:1 Aspect Ratio */
+    position: relative; /* If you want text inside of it */
+  }
+
+  .text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    font-size: 5vw;
+ }
+
+</style>
+    <div class="main-board">
+        <div class="grid-container">
+            <div class="boardspace">
+                <div class="text">1</div>
+            </div >
+            <div class="boardspace">
+                <div class="text">2</div>
+            </div>
+        </div>
+    </div>
+
+@code {
+  private TicTacToeGame tictactoe;
+  private BlazorTicTacToeBoardSpace space;
+  private BlazorTicTacToeBoardLine lines;
+  public BlazorTicTacToeBoard() { 
+  }
+
+  public BlazorTicTacToeBoard(TicTacToeGame tictactoe) { 
+    this.tictactoe=tictactoe;
+    this.space=(BlazorTicTacToeBoardSpace)this.getBoardSpace(); 
+    this.lines=(BlazorTicTacToeBoardLine)this.buildLines();
+  }
+
+  public override ITicTacToeBoardSpace getBoardSpace(){
+    return new BlazorTicTacToeBoardSpace(this.tictactoe);
+  }
+
+  public override ITicTacToeBoardLine buildLines(){
+    return new BlazorTicTacToeBoardLine(this.tictactoe);
+  }
+}

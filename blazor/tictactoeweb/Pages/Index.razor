@@ -2,21 +2,13 @@
 @using tictactoeweb.Shared.Controllers
 
 @inject HttpClient Http
-@inject HttpClient ControllerBase
+@* @inject ControllerBase *@
+
 @inherits ControllerBase
 
 <h1>TicTacToe Demo</h1>
 
-    <div class="main-board">
-        <div class="grid-container">
-            <div class="boardspace">
-                <div class="text">1</div>
-            </div >
-            <div class="boardspace">
-                <div class="text">2</div>
-            </div>
-        </div>
-    </div>
+    <BlazorTicTacToeBoard />
 
 @code {
     private int currentCount = 0;

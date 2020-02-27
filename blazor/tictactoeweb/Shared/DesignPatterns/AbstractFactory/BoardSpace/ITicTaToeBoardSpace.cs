@@ -1,5 +1,6 @@
 
- 
+ using Microsoft.AspNetCore.Components;
+
  namespace tictactoeweb.Shared.DesignPatterns{
 
   /// <summary>
@@ -8,9 +9,8 @@
 
   /// </summary>
 
-  public abstract class ITicTacToeUIFactory
+  public abstract class ITicTacToeBoardSpace : ComponentBase
   {
-    public abstract ITicTacToeBoard getBoard(TicTacToeGame tictactoe,bool glow);
   }
 
  }
