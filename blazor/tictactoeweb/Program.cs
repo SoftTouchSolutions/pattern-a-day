@@ -22,7 +22,11 @@ namespace blazor
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<Startup>()
+                    .UseUrls(new String[]{
+                        "https://*:8090",
+                        // "https://*:8090",
+                    });
                 });
     }
 }
