@@ -1,6 +1,5 @@
 ﻿@namespace tictactoeweb.Shared.DesignPatterns
 
-@inherits ITicTacToeBoard
 @inject TicTacToeGame tictactoe
 
 <style>
@@ -51,11 +50,11 @@
   private BlazorTicTacToeBoardLine lines;
     protected override void OnInitialized()
     {
-      this.space=(BlazorTicTacToeBoardSpace)this.getBoardSpace(); 
-      this.lines=(BlazorTicTacToeBoardLine)this.buildLines();
+      this.space=this.getBoardSpace(); 
+      this.lines=this.buildLines();
     }
 
-    public override ITicTacToeBoardSpace getBoardSpace(){
+    public BlazorTicTacToeBoardSpace getBoardSpace(){
       return new BlazorTicTacToeBoardSpace();
     }
 
@@ -63,7 +62,7 @@
     {
         tictactoe.gamePlay();
     }
-    public override ITicTacToeBoardLine buildLines(){
+    public BlazorTicTacToeBoardLine buildLines(){
       return new BlazorTicTacToeBoardLine();
     }
 }

@@ -8,7 +8,7 @@ using System.Text;
 
 namespace tictactoeweb.Shared.DesignPatterns
 {
-    public class TicTacToeGame
+    public class TicTacToeGame : ITicTacToeStrategy
     {
         private Random _random = new Random();
         public int[][] winstates = new int[][] {

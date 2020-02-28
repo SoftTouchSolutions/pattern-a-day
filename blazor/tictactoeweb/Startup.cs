@@ -32,7 +32,7 @@ namespace blazor
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
             services.AddSingleton<HttpClient>();
-            services.AddScoped<TicTacToeGame>();
+            services.AddSingleton<TicTacToeGame>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="build" default="cleanup">
+  <target name="replace" depends="publish" description="replace after publish">
+    <replace file="publishable/tictactoewasm/dist/index.html" 
+              token="    &lt;base href=&quot;/" 
+              value="    &lt;base href=&quot;/apps/blazor/tictactoe/tictactoewasm"/>
+  </target>
+  <target name="publish" depends="clean" description="Build distributable">
+    <exec executable="dotnet">
+      <arg value="publish"/>
+      <arg value="-o"/>
+      <arg value="publishable"/>
+    </exec>
+  </target>
+  <target name="dist" depends="replace" description="send to s3">
+    <exec executable="aws">
+      <arg value="s3"/>
+      <arg value="sync"/>
+      <arg value="publishable"/>
+      <arg value="s3://apps.softtouchsolutions.net/apps/blazor/tictactoe"/>
+      <arg value="--acl=public-read"/>
+    </exec>
+  </target>
+  <target name="cleanup" depends="dist">
+    <delete dir="publishable"/>
+  </target>
+  <target name="clean">
+    <delete dir="publishable"/>
+  </target>
+  <target name="sed" >
+    <exec executable="sed">
+      <!-- <arg value="-i"/> -->
+      <arg value="s/^    \&lt;base href=\&quot;\//    \&lt;base href=\&quot;\/corelsp\//"/>
+      <!--sed -i 's/^    <base href="\//    <base href="\/corelsp\//' publishable/corelsp/dist/index.html-->
+      <arg value="publishable/corelsp/dist/index.html"/>
+    </exec>
+  </target>
+</project>
