@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Net.Http;
 using blazor.Data;
+using tictactoeweb.Shared.DesignPatterns;
 
 namespace blazor
 {
@@ -31,6 +32,7 @@ namespace blazor
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
             services.AddSingleton<HttpClient>();
+            services.AddScoped<TicTacToeGame>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

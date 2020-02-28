@@ -33,13 +33,12 @@
 </style>
     <div class="main-board">
         <div class="grid-container">
-        @foreach (var use in Params.InitData.UsagesMenu)
+        @* @foreach (var use in Params.InitData.UsagesMenu) *@
+        @for (int i=0;i<9;i++)
         {
-            <li data=@use.Key onclick=@(()=>ClickMe(use.Value))>@use.Value</li>
+          <BlazorTicTacToeBoardSpace />
+            @* <li data=@use.Key onclick=@(()=>ClickMe(use.Value))>@use.Value</li> *@
         } 
-            <div class="boardspace">
-                <div class="text">2</div>
-            </div>
         </div>
     </div>
 
@@ -57,7 +56,7 @@
   }
 
   public override ITicTacToeBoardSpace getBoardSpace(){
-    return new BlazorTicTacToeBoardSpace(this.tictactoe);
+    return new BlazorTicTacToeBoardSpace();
   }
 
   public override ITicTacToeBoardLine buildLines(){

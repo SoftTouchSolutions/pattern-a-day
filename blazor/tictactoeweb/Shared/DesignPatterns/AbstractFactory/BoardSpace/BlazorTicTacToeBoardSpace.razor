@@ -2,18 +2,22 @@
 @namespace tictactoeweb.Shared.DesignPatterns
 
 @inherits ITicTacToeBoardSpace
+@inject TicTacToeGame tictactoe
 
-            <div class="boardspace">
-                <div class="text">1</div>
-            </div >
+<div class="boardspace">
+    <div class="text">1</div>
+</div >
 
 @code
 {
-    private TicTacToeGame tictactoe;
-    public BlazorTicTacToeBoardSpace() { 
+    [Parameter]
+    public int Idx { get; set; }
+    protected override void OnInitialized()
+    {
+        //log(new {msg="Init called"});
+        this.tictactoe=tictactoe;
+
     }
-    public BlazorTicTacToeBoardSpace(TicTacToeGame tictactoe) { 
-        this.tictactoe=tictactoe; 
-    } 
+
 }
 
