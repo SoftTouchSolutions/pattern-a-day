@@ -3,7 +3,7 @@
   <target name="replace" depends="publish" description="replace after publish">
     <replace file="publishable/tictactoewasm/dist/index.html" 
               token="    &lt;base href=&quot;/" 
-              value="    &lt;base href=&quot;/apps/blazor/tictactoe/tictactoewasm"/>
+              value="    &lt;base href=&quot;/apps/blazor/tictactoe/"/>
   </target>
   <target name="publish" depends="clean" description="Build distributable">
     <exec executable="dotnet">
@@ -16,9 +16,9 @@
     <exec executable="aws">
       <arg value="s3"/>
       <arg value="sync"/>
-      <arg value="publishable"/>
+      <arg value="publishable/tictactoewasm/dist"/>
       <arg value="s3://apps.softtouchsolutions.net/apps/blazor/tictactoe"/>
-      <arg value="--acl=public-read"/>
+      <arg value="--acl=public-read-write"/>
     </exec>
   </target>
   <target name="cleanup" depends="dist">
