@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+ 
  namespace tictactoeweb.Shared.DesignPatterns{
 
   /// <summary>
@@ -6,10 +9,10 @@
 
   /// </summary>
 
-  abstract class AbstractInputMethod
+  public abstract class AbstractInputMethod : PrintableObject
 
   {
-    private List<AbstractInputAction> _observers = new List<AbstractInputAction>();
+    protected List<AbstractInputAction> _observers = new List<AbstractInputAction>();
  
     public void Attach(AbstractInputAction observer)
     {

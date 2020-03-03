@@ -45,8 +45,21 @@ namespace tictactoeweb.Shared.DesignPatterns
             this.winner="TicTacToe Demo";
             this.windex=-1;
         }
-        public void gamePlay(){
+        public void gamePlay(int idx=-1){
             if(this.isWinState()||this.isBoardFilled())this.reset();
+            if(idx!=-1){
+                this.XTurnToPlay=false;
+                if(this.gameState[idx].Equals("-")){
+                    this.gameState[idx]="X";
+                }else return;
+                if(this.isWinState()){
+                    this.winner="X Wins";
+                    return;
+                }else if(this.isBoardFilled()){
+                    this.winner="game was a draw";
+                    return;
+                }
+            }
             this.getNextState();
         }
         public void getNextState() {

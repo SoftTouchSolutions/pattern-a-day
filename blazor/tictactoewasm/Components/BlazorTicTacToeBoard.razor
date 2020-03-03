@@ -38,12 +38,13 @@
         @* @foreach (var use in Params.InitData.UsagesMenu) *@
         @for (int i=0;i<9;i++)
         {
-          <BlazorTicTacToeBoardSpace Idx=i TicTacToe="tictactoe"/>
-            @* <li data=@use.Key onclick=@(()=>ClickMe(use.Value))>@use.Value</li> *@
+          int idx=i;
+          <BlazorTicTacToeBoardSpace Idx=i TicTacToe="tictactoe" @onclick=@(()=>PlayGame(idx))/>
         } 
         </div>
     </div>
-<button class="btn btn-primary" @onclick="PlayGame">Click me</button>
+<button class="btn btn-primary" @onclick=@(()=>PlayGame())>Click me</button>
+@* <button class="btn btn-primary" @onclick="PlayGame">Click me</button> *@
 
 @code {
   private BlazorTicTacToeBoardSpace space;
@@ -58,9 +59,9 @@
       return new BlazorTicTacToeBoardSpace();
     }
 
-    private void PlayGame()
+    private void PlayGame(int idx=-1)
     {
-        tictactoe.gamePlay();
+        tictactoe.gamePlay(idx);
     }
     public BlazorTicTacToeBoardLine buildLines(){
       return new BlazorTicTacToeBoardLine();

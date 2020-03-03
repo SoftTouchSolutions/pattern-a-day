@@ -4,7 +4,7 @@
 <style>
   .boardspace {
     width: 100%;
-    padding-top: 90%; /* 1:1 Aspect Ratio */
+    padding-top: 5%; /* 1:1 Aspect Ratio */
     position: relative; /* If you want text inside of it */
   }
   .usered {
@@ -17,20 +17,19 @@
   }
 
  }
-
 </style>
-<div class="@( (TicTacToe.windex!=-1 
-                && TicTacToe.winstates[TicTacToe.windex].Contains(Idx))
-                ?"boardspace usewhite":"boardspace usered" )">
-    <div class="text">@TicTacToe.gameState[Idx]</div>
-</div >
-
+<button class="@( (TicTacToe.windex!=-1 
+            && TicTacToe.winstates[TicTacToe.windex].Contains(Idx))
+            ?"boardspace usewhite text":"boardspace usered text" )" @onclick="onclick">
+@TicTacToe.gameState[Idx]
+</button>
 @code
 {
     [Parameter]
     public int Idx { get; set; }
     [Parameter]
     public TicTacToeGame TicTacToe { get; set; }
-
+    [Parameter]
+    public EventCallback<MouseEventArgs> onclick { get; set; }
 }
 
