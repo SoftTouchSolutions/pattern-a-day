@@ -12,6 +12,7 @@
       public DNCTextInputMethod(TicTacToeGame tictactoe){
           this.SubjectState=tictactoe;
       }
+
   }
  
  }

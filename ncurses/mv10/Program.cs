@@ -83,7 +83,7 @@ namespace tictactoeweb.Shared.DesignPatterns{
                     update = false;
                 }
             }
-            NCurses.GetChar();
+            //NCurses.GetChar();
         }
     }
 }

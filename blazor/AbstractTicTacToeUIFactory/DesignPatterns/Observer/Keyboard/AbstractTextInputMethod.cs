@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
   /// </summary>
 
-  public abstract class AbstractTextInputMethod
+  public abstract class AbstractTextInputMethod : AbstractInputMethod
 
   {
      protected TicTacToeGame _subjectState;

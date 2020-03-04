@@ -9,8 +9,7 @@ namespace tictactoeweb.Shared.DesignPatterns{
 
   /// </summary>
 
-  public abstract class AbstractMouseInputMethod
-
+  public abstract class AbstractMouseInputMethod : AbstractInputMethod
   {
       protected TicTacToeGame _subjectState;
  

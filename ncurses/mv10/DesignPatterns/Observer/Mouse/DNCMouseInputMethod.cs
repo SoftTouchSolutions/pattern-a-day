@@ -1,4 +1,6 @@
- namespace tictactoeweb.Shared.DesignPatterns{
+ using System;
+
+namespace tictactoeweb.Shared.DesignPatterns{
 
   /// <summary>
 

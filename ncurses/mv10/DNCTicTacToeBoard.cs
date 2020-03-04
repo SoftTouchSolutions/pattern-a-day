@@ -4,13 +4,20 @@ using Mindmagma.Curses;
 namespace tictactoeweb.Shared.DesignPatterns{
 
     public class DNCTicTacToeBoard
-    
     {
+        private static IntPtr _Win;
+
         public static void Render(){
-                var win=NCurses.NewWindow(4, 10, 5, 20);
+                _Win=NCurses.NewWindow(4, 10, 5, 20);
                 NCurses.Refresh();
-                NCurses.Box(win,(char)0,(char)0);
-                NCurses.WindowRefresh(win);
+                NCurses.Box(_Win,(char)0,(char)0);
+                NCurses.WindowRefresh(_Win);
+                //NCurses.GetChar();
+        }
+        public static void BoxText(string text){
+                //NCurses.Refresh();
+                mvprintw(win,y,x,char*);
+                NCurses.WindowRefresh(_Win);
                 //NCurses.GetChar();
         }
     }
