@@ -16,7 +16,7 @@ namespace tictactoeweb.Shared.DesignPatterns{
         }
         public static void BoxText(string text){
                 //NCurses.Refresh();
-                mvprintw(win,y,x,char*);
+                NCurses.WindowAddString(_Win,text);
                 NCurses.WindowRefresh(_Win);
                 //NCurses.GetChar();
         }
