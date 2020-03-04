@@ -13,7 +13,7 @@ namespace tictactoeweb.Shared.DesignPatterns{
 
   {
     protected string _name;
-    protected string _observerState;
+    protected TicTacToeGame _observerState;
     protected AbstractMouseInputMethod _subject;
  
     // Constructor

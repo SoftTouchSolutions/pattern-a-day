@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="build" default="dnr">
+  <target name="dnr" depends="dnc" description="run file">
+    <exec executable="dotnet">
+      <arg value="run"/>
+    </exec>
+  </target>
+  <target name="dnc" >
+    <exec executable="dotnet">
+      <arg value="clean"/>
+    </exec>
+  </target>
+</project>

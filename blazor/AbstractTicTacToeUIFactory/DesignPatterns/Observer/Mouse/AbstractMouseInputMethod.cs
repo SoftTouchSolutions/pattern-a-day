@@ -12,11 +12,11 @@ namespace tictactoeweb.Shared.DesignPatterns{
   public abstract class AbstractMouseInputMethod
 
   {
-      protected string _subjectState;
+      protected TicTacToeGame _subjectState;
  
     // Gets or sets subject state
 
-    public string SubjectState
+    public TicTacToeGame SubjectState
     {
       get { return _subjectState; }
       set { _subjectState = value; }

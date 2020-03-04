@@ -6,11 +6,13 @@ namespace tictactoeweb.Shared.DesignPatterns{
     class Program
     {
         private static IntPtr Screen;
-
         private static readonly Random rng = new Random();
+        private static TicTacToeGame tictactoe=new TicTacToeGame();
+        private static DNCTextInputMethod textListener=new DNCTextInputMethod(tictactoe);
 
         static void Main(string[] args)
         {
+            textListener.Attach(new DNCTextInputAction("TicTacToeAction"));
             Screen = NCurses.InitScreen();
             try
             {
@@ -30,6 +32,7 @@ namespace tictactoeweb.Shared.DesignPatterns{
             NCurses.MoveAddString(0, 0, "Click a button or press any key to exit.");
             NCurses.MoveAddString(2, 0, "[X]  [Y]");
 
+            DNCTicTacToeBoard.Render();
             // some terminals require this to differentiate mouse "keys" from random keyboard input
             NCurses.Keypad(Screen, true);
 
@@ -68,6 +71,7 @@ namespace tictactoeweb.Shared.DesignPatterns{
                         break;
 
                     default:
+                        textListener.Notify();
                         exit = true;
                         break;
                 }
@@ -79,7 +83,7 @@ namespace tictactoeweb.Shared.DesignPatterns{
                     update = false;
                 }
             }
-
+            NCurses.GetChar();
         }
     }
 }
