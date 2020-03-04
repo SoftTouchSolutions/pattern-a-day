@@ -9,7 +9,8 @@
   public class DNCTextInputAction : AbstractTextInputAction
 
   {
-    public DNCTextInputAction(AbstractTextInputMethod subject, string name):base(subject,name)
+    public DNCTextInputAction(AbstractTextInputMethod subject, string name)
+      :base(subject,name)
     {
     }
   }

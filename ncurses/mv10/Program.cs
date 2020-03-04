@@ -12,7 +12,7 @@ namespace tictactoeweb.Shared.DesignPatterns{
 
         static void Main(string[] args)
         {
-            textListener.Attach(new DNCTextInputAction("TicTacToeAction"));
+            textListener.Attach(new DNCTextInputAction(textListener,"TicTacToeAction"));
             Screen = NCurses.InitScreen();
             try
             {
