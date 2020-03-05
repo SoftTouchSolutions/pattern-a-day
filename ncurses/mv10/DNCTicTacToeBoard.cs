@@ -5,41 +5,40 @@ namespace tictactoeweb.Shared.DesignPatterns{
 
     public class DNCTicTacToeBoard
     {
-        private IntPtr _Win;
-        private TicTacToeGame tictactoe=new TicTacToeGame();
-        private DNCTextInputMethod textListener;
+        private TicTacToeGame _tictactoe=new TicTacToeGame();
+        private DNCTextInputMethod _textListener;
         private static IntPtr _screen;
 
         public DNCTicTacToeBoard(){
             _screen = NCurses.InitScreen();
-            textListener=new DNCTextInputMethod(tictactoe);
-            textListener.Attach(new DNCTextInputAction(this,textListener,"TicTacToeAction"));
+            _textListener=new DNCTextInputMethod(_tictactoe);
+            _textListener.Attach(new DNCTextInputAction(this,_textListener,"TicTacToeAction"));
+            NCurses.NoDelay(_screen, true);
+            NCurses.NoEcho();
+            // some terminals require this to differentiate mouse "keys" from random keyboard input
+            NCurses.Keypad(_screen, true);
         }
 
         public void Render(){
-            NCurses.MoveAddString(2, 0, textListener.SubjectState.winner);
+            NCurses.Clear();
+            NCurses.MoveAddString(0, 0, "Click a button or use QWE-ASD-ZXC keys.");
+            NCurses.MoveAddString(2, 0, _tictactoe.winner);
             for(int i=0;i<9;i++){
-                DNCTicTacToeBoardSpace.Render(i);
+                DNCTicTacToeBoardSpace.Render(_tictactoe,i);
             }
+            NCurses.Move(NCurses.Lines - 1, NCurses.Columns - 1);
         }
-        public void BoxText(string text){
-            int y,x;
-            // NCurses.ClearWindow(_Win);
-            NCurses.GetMaxYX(_Win,out y,out x);
-            y/=2;x/=2;
-            x-=text.Length/2;
-            NCurses.MoveWindowAddString(_Win,y,x,text);
-            NCurses.WindowRefresh(_Win);
-        }
+        // public void BoxText(string text){
+        //     int y,x;
+        //     // NCurses.ClearWindow(_Win);
+        //     NCurses.GetMaxYX(_Win,out y,out x);
+        //     y/=2;x/=2;
+        //     x-=text.Length/2;
+        //     NCurses.MoveWindowAddString(_Win,y,x,text);
+        //     NCurses.WindowRefresh(_Win);
+        // }
 
         public void Play(){
-            NCurses.NoDelay(_screen, true);
-            NCurses.NoEcho();
-
-            NCurses.MoveAddString(0, 0, "Click a button or use QWE-ASD-ZXC keys.");
-
-            // some terminals require this to differentiate mouse "keys" from random keyboard input
-            NCurses.Keypad(_screen, true);
 
             this.Render();
 
@@ -73,6 +72,51 @@ namespace tictactoeweb.Shared.DesignPatterns{
                         }
                         break;
 
+                    case (int)'Q':
+                    case (int)'q':
+                        _tictactoe.gamePlay(0);
+                        _textListener.Notify();
+                        break;
+                    case (int)'W':
+                    case (int)'w':
+                        _tictactoe.gamePlay(1);
+                        _textListener.Notify();
+                        break;
+                    case (int)'E':
+                    case (int)'e':
+                        _tictactoe.gamePlay(2);
+                        _textListener.Notify();
+                        break;
+                    case (int)'A':
+                    case (int)'a':
+                        _tictactoe.gamePlay(3);
+                        _textListener.Notify();
+                        break;
+                    case (int)'S':
+                    case (int)'s':
+                        _tictactoe.gamePlay(4);
+                        _textListener.Notify();
+                        break;
+                    case (int)'D':
+                    case (int)'d':
+                        _tictactoe.gamePlay(5);
+                        _textListener.Notify();
+                        break;
+                    case (int)'Z':
+                    case (int)'z':
+                        _tictactoe.gamePlay(6);
+                        _textListener.Notify();
+                        break;
+                    case (int)'X':
+                    case (int)'x':
+                        _tictactoe.gamePlay(7);
+                        _textListener.Notify();
+                        break;
+                    case (int)'C':
+                    case (int)'c':
+                        _tictactoe.gamePlay(8);
+                        _textListener.Notify();
+                        break;
                     case -1:
                         // no input received
                         break;
@@ -90,7 +134,6 @@ namespace tictactoeweb.Shared.DesignPatterns{
                     update = false;
                 }
             }
-
         }
     }
 }

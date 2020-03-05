@@ -90,6 +90,11 @@ namespace tictactoeweb.Shared.DesignPatterns
             return !this.gameState.ToList().Contains("-");
         }
         
+        public bool gameStarted() {
+            return this.gameState.ToList().Contains("X")
+                || this.gameState.ToList().Contains("O");
+        }
+        
         public void printState(){
             var sb=new StringBuilder();
             for(var i=0;i<3;i++){
