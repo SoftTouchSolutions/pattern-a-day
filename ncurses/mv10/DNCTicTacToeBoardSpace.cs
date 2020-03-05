@@ -10,10 +10,11 @@ namespace tictactoeweb.Shared.DesignPatterns{
     {
         private static IntPtr _Win;
         private static string[] ky={"Q","W","E","A","S","D","Z","X","C"};
+        private static int voff=4,hoff=2,sw=10,sh=5;
 
         public static void Render(TicTacToeGame tictactoe, int i){
-            int j=i/3,k=i%3,voff=4,hoff=2,bw=10,bh=5;
-            _Win=NCurses.NewWindow(bh, bw, voff+(j*bh-1), hoff+(k*bw-1));
+            int j=i/3,k=i%3;
+            _Win=NCurses.NewWindow(sh, sw, voff+(j*sh-1), hoff+(k*sw-1));
             NCurses.Refresh();
             NCurses.Box(_Win,(char)0,(char)0);
             NCurses.WindowRefresh(_Win);
@@ -34,7 +35,17 @@ namespace tictactoeweb.Shared.DesignPatterns{
             //     BoxText(ky[i]);
             // }
         }
-        public static void BoxText(string text){
+        public static void PlayMouse(TicTacToeGame tictactoe, MouseEvent me)
+        {
+            for(int i=0;i<9;i++){
+                int j=i/3,k=i%3;
+                if(voff+j*sh<me.y && voff+j*sh+sh>me.y && hoff+k*sw<me.x && hoff+k*sw+sw>me.x)
+                    tictactoe.gamePlay(i);
+            }
+        }
+
+        public static void BoxText(string text)
+        {
             int y,x;
             NCurses.GetMaxYX(_Win,out y,out x);
             y/=2;x/=2;

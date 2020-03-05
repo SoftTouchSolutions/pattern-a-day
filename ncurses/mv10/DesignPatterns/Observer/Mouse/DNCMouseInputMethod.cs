@@ -9,8 +9,10 @@ namespace tictactoeweb.Shared.DesignPatterns{
   /// </summary>
 
   public class DNCMouseInputMethod : AbstractMouseInputMethod
-
   {
+      public DNCMouseInputMethod(TicTacToeGame tictactoe){
+          this.SubjectState=tictactoe;
+      }
   }
  
  }

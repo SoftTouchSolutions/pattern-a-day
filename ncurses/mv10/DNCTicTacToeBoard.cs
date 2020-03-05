@@ -6,13 +6,13 @@ namespace tictactoeweb.Shared.DesignPatterns{
     public class DNCTicTacToeBoard
     {
         private TicTacToeGame _tictactoe=new TicTacToeGame();
-        private DNCTextInputMethod _textListener;
+        private DNCInputMethod _iListener;
         private static IntPtr _screen;
 
         public DNCTicTacToeBoard(){
             _screen = NCurses.InitScreen();
-            _textListener=new DNCTextInputMethod(_tictactoe);
-            _textListener.Attach(new DNCTextInputAction(this,_textListener,"TicTacToeAction"));
+            _iListener=new DNCInputMethod(_tictactoe);
+            _iListener.Attach(new DNCInputAction(this,_iListener,"TicTacToeTextAction"));
             NCurses.NoDelay(_screen, true);
             NCurses.NoEcho();
             // some terminals require this to differentiate mouse "keys" from random keyboard input
@@ -63,7 +63,8 @@ namespace tictactoeweb.Shared.DesignPatterns{
                         try
                         {
                             NCurses.GetMouse(out MouseEvent mouse);
-                            NCurses.MoveAddString(3, 0, $"{mouse.x.ToString("000")}  {mouse.y.ToString("000")}");
+                            // NCurses.MoveAddString(3, 0, $"{mouse.x.ToString("000")}  {mouse.y.ToString("000")}");
+                            DNCTicTacToeBoardSpace.PlayMouse(_tictactoe,mouse);
                             update = true;
                         }
                         catch (DotnetCursesException)
@@ -75,47 +76,47 @@ namespace tictactoeweb.Shared.DesignPatterns{
                     case (int)'Q':
                     case (int)'q':
                         _tictactoe.gamePlay(0);
-                        _textListener.Notify();
+                        _iListener.Notify();
                         break;
                     case (int)'W':
                     case (int)'w':
                         _tictactoe.gamePlay(1);
-                        _textListener.Notify();
+                        _iListener.Notify();
                         break;
                     case (int)'E':
                     case (int)'e':
                         _tictactoe.gamePlay(2);
-                        _textListener.Notify();
+                        _iListener.Notify();
                         break;
                     case (int)'A':
                     case (int)'a':
                         _tictactoe.gamePlay(3);
-                        _textListener.Notify();
+                        _iListener.Notify();
                         break;
                     case (int)'S':
                     case (int)'s':
                         _tictactoe.gamePlay(4);
-                        _textListener.Notify();
+                        _iListener.Notify();
                         break;
                     case (int)'D':
                     case (int)'d':
                         _tictactoe.gamePlay(5);
-                        _textListener.Notify();
+                        _iListener.Notify();
                         break;
                     case (int)'Z':
                     case (int)'z':
                         _tictactoe.gamePlay(6);
-                        _textListener.Notify();
+                        _iListener.Notify();
                         break;
                     case (int)'X':
                     case (int)'x':
                         _tictactoe.gamePlay(7);
-                        _textListener.Notify();
+                        _iListener.Notify();
                         break;
                     case (int)'C':
                     case (int)'c':
                         _tictactoe.gamePlay(8);
-                        _textListener.Notify();
+                        _iListener.Notify();
                         break;
                     case -1:
                         // no input received
@@ -129,8 +130,9 @@ namespace tictactoeweb.Shared.DesignPatterns{
 
                 if (update)
                 {
-                    NCurses.Move(NCurses.Lines - 1, NCurses.Columns - 1);
-                    NCurses.Refresh();
+                    // NCurses.Move(NCurses.Lines - 1, NCurses.Columns - 1);
+                    // NCurses.Refresh();
+                    _iListener.Notify();
                     update = false;
                 }
             }

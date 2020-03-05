@@ -8,8 +8,21 @@
 
   public class DNCInputAction : AbstractInputAction
   {
+    protected string _name;
+    protected TicTacToeGame _observerState;
+    protected DNCInputMethod _subject;
+    private DNCTicTacToeBoard _tictactoe;
+
+    public DNCInputAction(DNCTicTacToeBoard tictactoe, DNCInputMethod subject, string name)
+    {
+      this._tictactoe=tictactoe;
+      this._name=name;
+      this._subject=subject;
+    }
     public override void Update()
     {
+      _observerState = _subject.SubjectState;
+      _tictactoe.Render();
     }
     // private int threshold;
     // private int total;

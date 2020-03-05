@@ -19,8 +19,6 @@ using System;
     public override void Update()
     {
       _observerState = _subject.SubjectState;
-      // Console.WriteLine($"Observer {_name}'s new state is {_observerState.ToString()}");
-      //_tictactoe.BoxText($"hi ");//new state is {_observerState.ToString()}");
       _tictactoe.Render();
     }
   }
