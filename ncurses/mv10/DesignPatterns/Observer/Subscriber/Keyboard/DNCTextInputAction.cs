@@ -8,17 +8,19 @@ using System;
 
   /// </summary>
 
-  public class DNCTextInputAction : AbstractTextInputAction
-
+  public class DNCTextInputAction : AbstractTextInputAction 
   {
-    public DNCTextInputAction(AbstractTextInputMethod subject, string name)
+    private DNCTicTacToeBoard _tictactoe;
+    public DNCTextInputAction(DNCTicTacToeBoard tictactoe, AbstractTextInputMethod subject, string name)
       :base(subject,name)
     {
+      this._tictactoe=tictactoe;
     }
     public override void Update()
     {
       _observerState = _subject.SubjectState;
-      DNCTicTacToeBoard.BoxText($"Observer {_name}'s new state is {_observerState}");
+      // Console.WriteLine($"Observer {_name}'s new state is {_observerState.ToString()}");
+      _tictactoe.BoxText($"hi ");//new state is {_observerState.ToString()}");
     }
   }
 
