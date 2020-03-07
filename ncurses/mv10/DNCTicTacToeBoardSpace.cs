@@ -29,11 +29,9 @@ namespace tictactoeweb.Shared.DesignPatterns{
                     BoxText(tictactoe.gameState[i]);
                     NCurses.AttributeOff(NCurses.ColorPair(1));
                 }
-            else
+            else{
                     BoxText(tictactoe.gameState[i]);
-            // if(!tictactoe.gameStarted()){
-            //     BoxText(ky[i]);
-            // }
+            }
         }
         public static void PlayMouse(TicTacToeGame tictactoe, MouseEvent me)
         {

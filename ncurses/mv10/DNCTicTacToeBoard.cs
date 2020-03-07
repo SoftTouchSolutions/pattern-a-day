@@ -28,15 +28,6 @@ namespace tictactoeweb.Shared.DesignPatterns{
             }
             NCurses.Move(NCurses.Lines - 1, NCurses.Columns - 1);
         }
-        // public void BoxText(string text){
-        //     int y,x;
-        //     // NCurses.ClearWindow(_Win);
-        //     NCurses.GetMaxYX(_Win,out y,out x);
-        //     y/=2;x/=2;
-        //     x-=text.Length/2;
-        //     NCurses.MoveWindowAddString(_Win,y,x,text);
-        //     NCurses.WindowRefresh(_Win);
-        // }
 
         public void Play(){
 
