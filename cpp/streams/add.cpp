@@ -15,7 +15,7 @@ int main(){
     if(name[0]=='e' && name[1]=='n' && name[2]=='d'){
       break;
     }
-    fout << setw(15) << name << setw(11) << tel << endl;
+    fout <<left <<setw(10)<< name << right<< setw(11) << tel << endl;
   }
   fout.close();
 }
