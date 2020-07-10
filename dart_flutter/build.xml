@@ -16,9 +16,6 @@
       <fileset dir="publishable/corelsp/dist"/>
     </scp>
   </target>
-  <!-- <target name="down"  description="Build distributable">
-    <scp file="john:k_-_monger@gaia.hud.ac.uk:/home/john/Dropbox/rtmp/src/cs/core/wbible/bin/Debug/netcoreapp1.1/wbible.db" todir="../wbiblecore" trust="true"/>
-  </target> -->
   <target name="publish" depends="clean" description="Build distributable">
     <exec executable="dotnet">
       <arg value="publish"/>
