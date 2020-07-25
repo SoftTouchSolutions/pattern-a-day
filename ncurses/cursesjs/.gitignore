@@ -1,0 +1,8 @@
+# vim swap files
+.*.sw*
+
+# emacs swap files
+*~
+
+node_modules
+dist
