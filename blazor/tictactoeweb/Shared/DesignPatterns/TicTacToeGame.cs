@@ -30,8 +30,8 @@ namespace tictactoeweb.Shared.DesignPatterns
             var tictactoe = new TicTacToeGame();
             tictactoe.getNextState();
             while (!tictactoe.isBoardFilled()) {
-            tictactoe.getNextState();
-            if (tictactoe.isWinState())break;
+                tictactoe.getNextState();
+                if (tictactoe.isWinState())break;
             }
             if(tictactoe.isWinState())
             	Console.WriteLine((tictactoe.XTurnToPlay ? "O" : "X") + " wins");
